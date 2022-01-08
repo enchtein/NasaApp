@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		8AA4C7FB2789C53800C55576 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA4C7FA2789C53800C55576 /* AppDelegate.swift */; };
 		8AA4C7FD2789C53800C55576 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA4C7FC2789C53800C55576 /* SceneDelegate.swift */; };
-		8AA4C7FF2789C53800C55576 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA4C7FE2789C53800C55576 /* ViewController.swift */; };
+		8AA4C7FF2789C53800C55576 /* NasaClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA4C7FE2789C53800C55576 /* NasaClientViewController.swift */; };
 		8AA4C8022789C53800C55576 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AA4C8002789C53800C55576 /* Main.storyboard */; };
 		8AA4C8042789C53900C55576 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AA4C8032789C53900C55576 /* Assets.xcassets */; };
 		8AA4C8072789C53900C55576 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AA4C8052789C53900C55576 /* LaunchScreen.storyboard */; };
@@ -21,7 +21,7 @@
 		8AA4C7F72789C53800C55576 /* NasaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NasaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AA4C7FA2789C53800C55576 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AA4C7FC2789C53800C55576 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8AA4C7FE2789C53800C55576 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8AA4C7FE2789C53800C55576 /* NasaClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaClientViewController.swift; sourceTree = "<group>"; };
 		8AA4C8012789C53800C55576 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8AA4C8032789C53900C55576 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AA4C8062789C53900C55576 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 				8AA4C80E2789C97500C55576 /* Storyboards */,
 				8AA4C7FA2789C53800C55576 /* AppDelegate.swift */,
 				8AA4C7FC2789C53800C55576 /* SceneDelegate.swift */,
-				8AA4C7FE2789C53800C55576 /* ViewController.swift */,
+				8AA4C7FE2789C53800C55576 /* NasaClientViewController.swift */,
 				8AA4C8032789C53900C55576 /* Assets.xcassets */,
 				8AA4C8052789C53900C55576 /* LaunchScreen.storyboard */,
 				8AA4C8082789C53900C55576 /* Info.plist */,
@@ -162,7 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AA4C8122789CBD900C55576 /* NasaTableViewCell.swift in Sources */,
-				8AA4C7FF2789C53800C55576 /* ViewController.swift in Sources */,
+				8AA4C7FF2789C53800C55576 /* NasaClientViewController.swift in Sources */,
 				8AA4C7FB2789C53800C55576 /* AppDelegate.swift in Sources */,
 				8AA4C7FD2789C53800C55576 /* SceneDelegate.swift in Sources */,
 			);
