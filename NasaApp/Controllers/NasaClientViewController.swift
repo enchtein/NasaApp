@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 class NasaClientViewController: UIViewController {
 
@@ -17,8 +18,16 @@ class NasaClientViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     self.nasaClientTable.register(UINib(nibName: "NasaTableViewCell", bundle: .main), forCellReuseIdentifier: self.cellIdentifier)
+    
+    self.fetchRequestAll()
   }
 
-
+  func fetchRequestAll() {
+      firstly { Provider.performRequestAll() }.done { [weak self] (response) in
+        let tepm = response
+      } .catch { (error) in
+          debugPrint(error.localizedDescription)
+      }
+  }
 }
 

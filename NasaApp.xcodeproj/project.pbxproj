@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D0391C82807756000F39903 /* MoyaTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0391C72807756000F39903 /* MoyaTarget.swift */; };
+		6D0391CA2807756C00F39903 /* MoyaAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0391C92807756C00F39903 /* MoyaAdapter.swift */; };
+		6D0391CE2807764D00F39903 /* RoversModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0391CD2807764D00F39903 /* RoversModel.swift */; };
+		6D0391D32807789900F39903 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0391D22807789900F39903 /* MainViewController.swift */; };
 		8AA4C7FB2789C53800C55576 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA4C7FA2789C53800C55576 /* AppDelegate.swift */; };
 		8AA4C7FD2789C53800C55576 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA4C7FC2789C53800C55576 /* SceneDelegate.swift */; };
 		8AA4C7FF2789C53800C55576 /* NasaClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA4C7FE2789C53800C55576 /* NasaClientViewController.swift */; };
@@ -20,6 +24,10 @@
 
 /* Begin PBXFileReference section */
 		095703C7F6C113FCFEB3A75A /* Pods-NasaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasaApp.release.xcconfig"; path = "Target Support Files/Pods-NasaApp/Pods-NasaApp.release.xcconfig"; sourceTree = "<group>"; };
+		6D0391C72807756000F39903 /* MoyaTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaTarget.swift; sourceTree = "<group>"; };
+		6D0391C92807756C00F39903 /* MoyaAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaAdapter.swift; sourceTree = "<group>"; };
+		6D0391CD2807764D00F39903 /* RoversModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoversModel.swift; sourceTree = "<group>"; };
+		6D0391D22807789900F39903 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8AA4C7F72789C53800C55576 /* NasaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NasaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AA4C7FA2789C53800C55576 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AA4C7FC2789C53800C55576 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +54,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D0391C4280774F100F39903 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				6D0391CF2807770800F39903 /* URLSessionNetwork */,
+				6D0391C62807750C00F39903 /* Moya+PromiseKit */,
+				6D0391C5280774FF00F39903 /* Model */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		6D0391C5280774FF00F39903 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6D0391CD2807764D00F39903 /* RoversModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6D0391C62807750C00F39903 /* Moya+PromiseKit */ = {
+			isa = PBXGroup;
+			children = (
+				6D0391C72807756000F39903 /* MoyaTarget.swift */,
+				6D0391C92807756C00F39903 /* MoyaAdapter.swift */,
+			);
+			path = "Moya+PromiseKit";
+			sourceTree = "<group>";
+		};
+		6D0391CF2807770800F39903 /* URLSessionNetwork */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = URLSessionNetwork;
+			sourceTree = "<group>";
+		};
+		6D0391D12807773100F39903 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8AA4C7FE2789C53800C55576 /* NasaClientViewController.swift */,
+				6D0391D22807789900F39903 /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		8AA4C7EE2789C53800C55576 = {
 			isa = PBXGroup;
 			children = (
@@ -67,11 +118,12 @@
 		8AA4C7F92789C53800C55576 /* NasaApp */ = {
 			isa = PBXGroup;
 			children = (
+				6D0391D12807773100F39903 /* Controllers */,
+				6D0391C4280774F100F39903 /* Network */,
 				8AA4C80F2789CBB500C55576 /* NasaTableViewCell */,
 				8AA4C80E2789C97500C55576 /* Storyboards */,
 				8AA4C7FA2789C53800C55576 /* AppDelegate.swift */,
 				8AA4C7FC2789C53800C55576 /* SceneDelegate.swift */,
-				8AA4C7FE2789C53800C55576 /* NasaClientViewController.swift */,
 				8AA4C8032789C53900C55576 /* Assets.xcassets */,
 				8AA4C8052789C53900C55576 /* LaunchScreen.storyboard */,
 				8AA4C8082789C53900C55576 /* Info.plist */,
@@ -110,7 +162,6 @@
 				CDB51D5467650B707AE1A680 /* Pods-NasaApp.debug.xcconfig */,
 				095703C7F6C113FCFEB3A75A /* Pods-NasaApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -233,7 +284,11 @@
 				8AA4C8122789CBD900C55576 /* NasaTableViewCell.swift in Sources */,
 				8AA4C7FF2789C53800C55576 /* NasaClientViewController.swift in Sources */,
 				8AA4C7FB2789C53800C55576 /* AppDelegate.swift in Sources */,
+				6D0391CA2807756C00F39903 /* MoyaAdapter.swift in Sources */,
+				6D0391C82807756000F39903 /* MoyaTarget.swift in Sources */,
+				6D0391CE2807764D00F39903 /* RoversModel.swift in Sources */,
 				8AA4C7FD2789C53800C55576 /* SceneDelegate.swift in Sources */,
+				6D0391D32807789900F39903 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,7 +438,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MY4GV626QN;
+				DEVELOPMENT_TEAM = P38WB3866W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NasaApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -391,6 +446,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -412,7 +468,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MY4GV626QN;
+				DEVELOPMENT_TEAM = P38WB3866W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NasaApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -420,6 +476,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
