@@ -8,16 +8,16 @@
 import UIKit
 import PromiseKit
 
-class NasaClientViewController: UIViewController {
+class NasaClientViewController: UIViewController, StoryboardInitializable {
 
-  @IBOutlet weak var nasaClientTable: UITableView!
+//  @IBOutlet weak var nasaClientTable: UITableView!
   
   let cellIdentifier = "NasaTableViewCell"
   
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
-    self.nasaClientTable.register(UINib(nibName: "NasaTableViewCell", bundle: .main), forCellReuseIdentifier: self.cellIdentifier)
+//    self.nasaClientTable.register(UINib(nibName: "NasaTableViewCell", bundle: .main), forCellReuseIdentifier: self.cellIdentifier)
     
     self.fetchRequestAll()
   }
