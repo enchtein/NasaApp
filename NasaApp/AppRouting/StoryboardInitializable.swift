@@ -47,6 +47,12 @@ extension StoryboardInitializable where Self : LoginViewController {
   }
 }
 
+extension StoryboardInitializable where Self : SideMenuViewController {
+  static var storyboardName: String {
+    return "LeftSideMenu"
+  }
+}
+
 extension StoryboardInitializable where Self : NasaClientViewController {
   static var storyboardName: String {
     return "RowerWindow"

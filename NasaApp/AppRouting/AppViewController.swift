@@ -9,5 +9,6 @@ import UIKit
 
 enum AppViewController {
   case login
+  case rootWithLeftSideMenu
   case selectRover
 }
