@@ -44,10 +44,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rzi-fM-1tp">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="qFo-Ht-8os"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="qFo-Ht-8os">
+                            <connections>
+                                <action selector="menuButtonPress:" destination="Brp-in-ymo" id="Fwd-ca-pmX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="Y6W-OH-hqX" kind="presentation" id="XCr-MN-1tg"/>
+                        <outlet property="containerView" destination="bOi-Qt-khj" id="7Fw-hl-waW"/>
+                        <outlet property="topMenuView" destination="MLc-rX-Kzk" id="8Fb-nJ-cfy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ibP-Aa-lnJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -57,19 +62,28 @@
         <!--Menu-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController title="Menu" id="Y6W-OH-hqX" customClass="MenuViewController" customModule="NasaApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuViewController" title="Menu" id="Y6W-OH-hqX" customClass="MenuViewController" customModule="NasaApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RGg-TF-uUz">
-                                <rect key="frame" x="0.0" y="44" width="414" height="798"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gBn-Ut-tDn">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UVU-sR-Pd0">
+                                                <rect key="frame" x="347" y="29.5" width="67" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                            </button>
+                                        </subviews>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="UVU-sR-Pd0" firstAttribute="centerY" secondItem="gBn-Ut-tDn" secondAttribute="centerY" id="Mg4-Nq-zGr"/>
                                             <constraint firstAttribute="height" constant="90" id="U6x-Th-5Cy"/>
+                                            <constraint firstAttribute="trailing" secondItem="UVU-sR-Pd0" secondAttribute="trailing" id="U8u-Oe-SX7"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UJm-dm-wq1">
@@ -79,8 +93,8 @@
                                             <constraint firstAttribute="height" constant="1" id="noo-b9-Q2q"/>
                                         </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YQe-Wo-DNq">
-                                        <rect key="frame" x="0.0" y="91" width="414" height="707"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YQe-Wo-DNq">
+                                        <rect key="frame" x="0.0" y="91" width="414" height="727"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
                                 </subviews>
@@ -108,6 +122,12 @@
                             <constraint firstItem="RGg-TF-uUz" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="r9P-54-Car"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="logoView" destination="gBn-Ut-tDn" id="Xb3-D3-zv0"/>
+                        <outlet property="logoViewHeight" destination="U6x-Th-5Cy" id="GS5-Ym-aBE"/>
+                        <outlet property="separator" destination="UJm-dm-wq1" id="uL3-sT-RqQ"/>
+                        <outlet property="tableView" destination="YQe-Wo-DNq" id="USi-Yv-x9k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
