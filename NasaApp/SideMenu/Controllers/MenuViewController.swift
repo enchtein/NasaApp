@@ -54,6 +54,12 @@ class MenuViewController: CommonBasedOnPresentationViewController {
     tableView.delegate = self
     tableView.dataSource = self
     tableView.register(UINib(nibName: "MenuTableViewCell", bundle: nil), forCellReuseIdentifier: self.menuCellIdentifier)
+    
+    let menuLogoView = MenuLogoView()
+    logoView.addSubview(menuLogoView)
+    menuLogoView.fillToSuperview()
+    
+    menuLogoView.setupMenuLogoViewConstraints()
   }
   
   override func viewDidLayoutSubviews() {

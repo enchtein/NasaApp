@@ -17,6 +17,9 @@
 		6D0391DF28077F3B00F39903 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0391DE28077F3B00F39903 /* UIApplication+Extension.swift */; };
 		6D0391E22807810500F39903 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D0391E12807810500F39903 /* Login.storyboard */; };
 		6D0391E5280781EF00F39903 /* RowerWindow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D0391E4280781EF00F39903 /* RowerWindow.storyboard */; };
+		6D4C68DA280A2C3B00B618F2 /* MenuLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4C68D9280A2C3B00B618F2 /* MenuLogoView.swift */; };
+		6D4C68DC280A3E0300B618F2 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4C68DB280A3E0300B618F2 /* UIView+Extension.swift */; };
+		6D4C68E0280A40CB00B618F2 /* CreatedBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4C68DF280A40CB00B618F2 /* CreatedBy.swift */; };
 		6D6047762808BB0100395354 /* LeftSideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D6047752808BB0100395354 /* LeftSideMenu.storyboard */; };
 		6D6047792808BC1B00395354 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6047782808BC1B00395354 /* SideMenuViewController.swift */; };
 		6D60477B2808BDCB00395354 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60477A2808BDCB00395354 /* MenuViewController.swift */; };
@@ -53,6 +56,9 @@
 		6D0391DE28077F3B00F39903 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		6D0391E12807810500F39903 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		6D0391E4280781EF00F39903 /* RowerWindow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RowerWindow.storyboard; sourceTree = "<group>"; };
+		6D4C68D9280A2C3B00B618F2 /* MenuLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuLogoView.swift; sourceTree = "<group>"; };
+		6D4C68DB280A3E0300B618F2 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		6D4C68DF280A40CB00B618F2 /* CreatedBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedBy.swift; sourceTree = "<group>"; };
 		6D6047752808BB0100395354 /* LeftSideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LeftSideMenu.storyboard; sourceTree = "<group>"; };
 		6D6047782808BC1B00395354 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		6D60477A2808BDCB00395354 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +147,7 @@
 			children = (
 				6D0391DE28077F3B00F39903 /* UIApplication+Extension.swift */,
 				6D60477F2808C00400395354 /* Notification.swift */,
+				6D4C68DB280A3E0300B618F2 /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -164,6 +171,14 @@
 			path = MainRoversWindow;
 			sourceTree = "<group>";
 		};
+		6D4C68DD280A40A500B618F2 /* CreatedBy */ = {
+			isa = PBXGroup;
+			children = (
+				6D4C68DF280A40CB00B618F2 /* CreatedBy.swift */,
+			);
+			path = CreatedBy;
+			sourceTree = "<group>";
+		};
 		6D6047742808BAC800395354 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +195,7 @@
 				6D60477A2808BDCB00395354 /* MenuViewController.swift */,
 				6D6296F42809E17C0093EB3A /* MenuViewPresentationController.swift */,
 				6D6296F6280A0E360093EB3A /* Menus.swift */,
+				6D4C68D9280A2C3B00B618F2 /* MenuLogoView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -251,6 +267,7 @@
 		8AA4C7F92789C53800C55576 /* NasaApp */ = {
 			isa = PBXGroup;
 			children = (
+				6D4C68DD280A40A500B618F2 /* CreatedBy */,
 				6D6296FD280A19B20093EB3A /* Enums */,
 				6D60477C2808BEDC00395354 /* Localization */,
 				6D6047742808BAC800395354 /* SideMenu */,
@@ -428,6 +445,7 @@
 				8AA4C8122789CBD900C55576 /* NasaTableViewCell.swift in Sources */,
 				6DB7FCCF2808D83400A7A220 /* SlideInTransition.swift in Sources */,
 				8AA4C7FF2789C53800C55576 /* NasaClientViewController.swift in Sources */,
+				6D4C68DA280A2C3B00B618F2 /* MenuLogoView.swift in Sources */,
 				8AA4C7FB2789C53800C55576 /* AppDelegate.swift in Sources */,
 				6D6047792808BC1B00395354 /* SideMenuViewController.swift in Sources */,
 				6D60477E2808BF0100395354 /* BaseViewController.swift in Sources */,
@@ -444,6 +462,8 @@
 				6D6296F7280A0E360093EB3A /* Menus.swift in Sources */,
 				6D0391DF28077F3B00F39903 /* UIApplication+Extension.swift in Sources */,
 				6DB7FCCE2808D83400A7A220 /* CommonPresentationController.swift in Sources */,
+				6D4C68E0280A40CB00B618F2 /* CreatedBy.swift in Sources */,
+				6D4C68DC280A3E0300B618F2 /* UIView+Extension.swift in Sources */,
 				6D0391DA28077E3B00F39903 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
