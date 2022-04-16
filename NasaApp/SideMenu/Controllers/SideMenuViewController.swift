@@ -51,7 +51,7 @@ class SideMenuViewController: BaseViewController, StoryboardInitializable {
     activeVC.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     activeVC.didMove(toParent: self)
     self.view.layoutSubviews()
-    self.title = activeVC.title
+    self.title = Menu.shared.selectedMenuItem.stringValue
   }
 }
 //MARK: - Presentation Controller processing

@@ -89,8 +89,8 @@ extension MenuViewController: UITableViewDelegate {
       self.rootController?.navigationItem.rightBarButtonItems = nil
     }
     dismiss(animated: true, completion: nil)
-    self.navigateToViewController(item.controller)
     Menu.shared.selectedMenuItem = item
+    self.navigateToViewController(item.controller)
   }
 }
 
