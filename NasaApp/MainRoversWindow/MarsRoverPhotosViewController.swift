@@ -1,5 +1,5 @@
 //
-//  RoverWindowViewController.swift
+//  MarsRoverPhotosViewController.swift
 //  NasaApp
 //
 //  Created by Track Ensure on 2022-04-17.
@@ -8,7 +8,7 @@
 import UIKit
 import PromiseKit
 
-class RoverWindowViewController: BaseViewController, StoryboardInitializable {
+class MarsRoverPhotosViewController: BaseViewController, StoryboardInitializable {
   
   private let cellIdentifier = "NasaTableViewCell"
 
@@ -95,14 +95,14 @@ class RoverWindowViewController: BaseViewController, StoryboardInitializable {
 }
 
 //MARK: - Rover UITableViewDelegate
-extension RoverWindowViewController: UITableViewDelegate {
+extension MarsRoverPhotosViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let cell = roverTable.cellForRow(at: indexPath)
     tableView.deselectRow(at: indexPath, animated: true)
   }
 }
 //MARK: - Rover UITableViewDataSource
-extension RoverWindowViewController: UITableViewDataSource {
+extension MarsRoverPhotosViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     self.tempDataSource.count
   }
@@ -120,7 +120,7 @@ extension RoverWindowViewController: UITableViewDataSource {
 }
 
 //MARK: - Heplers
-extension RoverWindowViewController {
+extension MarsRoverPhotosViewController {
   private func eventReact(for sender: UIControl, with event: EventForControl) {
     if sender === roverControl {
       roverName.textColor = event.colorThemeText

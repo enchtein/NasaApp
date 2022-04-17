@@ -53,8 +53,8 @@ extension StoryboardInitializable where Self : SideMenuViewController {
   }
 }
 
-extension StoryboardInitializable where Self : RoverWindowViewController {
+extension StoryboardInitializable where Self : MarsRoverPhotosViewController {
   static var storyboardName: String {
-    return "RowerWindow"
+    return "MarsRoverPhotos"
   }
 }
