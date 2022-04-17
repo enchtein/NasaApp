@@ -18,6 +18,7 @@ class BaseViewController: UIViewController {
       NotificationCenter.default.addObserver(self, selector: #selector(self.languageDidChangeNotification(notification:)), name: NSNotification.Name.languageDidCnahge, object: nil)
       languageDidChange()
       setupFont()
+      setupColorTheme()
       
       modalPresentationCapturesStatusBarAppearance = true
       setNeedsStatusBarAppearanceUpdate()
@@ -51,6 +52,8 @@ class BaseViewController: UIViewController {
 
   // MARK: - AppFont
   public func setupFont() {}
+  // MARK: - ColorTheme
+  public func setupColorTheme() {}
 }
 
 //MARK: - BaseNavigationController

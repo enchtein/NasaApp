@@ -20,7 +20,6 @@ class LoginViewController: UIViewController, StoryboardInitializable {
     
 
   @IBAction func goToRower(_ sender: UIButton) {
-//    let rowerVC = NasaClientViewController.createFromStoryboard()
     AppCoordinator.shared.present(.selectRover, animated: true, completion: nil)
   }
   /*

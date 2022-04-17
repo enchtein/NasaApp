@@ -38,7 +38,7 @@ enum MenuItemType: Int, CaseIterable {
   var controller: UIViewController { // should add all controllers for all windows
     switch self {
     case .MarsRoverPhotos:
-      return NasaClientViewController.createFromStoryboard()
+      return RoverWindowViewController.createFromStoryboard()
     case .AstronomyPictureOfTheDay: return UIViewController()
     case .History: return UIViewController()
     case .Setting: return UIViewController()

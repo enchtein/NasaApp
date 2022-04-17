@@ -38,7 +38,7 @@ class AppCoordinator: NSObject {
       self.rootSideMenuController = vc
       return vc
     case .selectRover:
-      return NasaClientViewController.createFromStoryboard()
+      return RoverWindowViewController.createFromStoryboard()
     }
   }
   

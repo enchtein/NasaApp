@@ -53,7 +53,7 @@ extension StoryboardInitializable where Self : SideMenuViewController {
   }
 }
 
-extension StoryboardInitializable where Self : NasaClientViewController {
+extension StoryboardInitializable where Self : RoverWindowViewController {
   static var storyboardName: String {
     return "RowerWindow"
   }
