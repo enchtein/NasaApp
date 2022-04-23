@@ -57,6 +57,10 @@ class MarsRoverPhotosViewController: BaseViewController, StoryboardInitializable
     [roverName, cameraName, dateName].forEach({$0?.textColor = theme.colorThemeText})
     [roverImage, cameraImage, dateImage].forEach({$0?.tintColor = theme.colorThemeImage})
   }
+  override func languageDidChange() {
+    super.languageDidChange()
+    self.roverTable.reloadData()
+  }
     
   private func additionalSettings() {
     [rover, camera, date].forEach {
@@ -117,7 +121,6 @@ extension MarsRoverPhotosViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if let cell = roverTable.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as? NasaTableViewCell {
-//      cell.roverNameLabel.text = self.tempDataSource[indexPath.row].name
       cell.setupCell(by: self.correctDataSource[indexPath.row])
       
       return cell

@@ -9,6 +9,7 @@ import UIKit
 
 extension Notification.Name {
   static let languageDidCnahge = Notification.Name("LANGUAGE_DID_CHANGE")
+  static let languageWillChange = Notification.Name("LANGUAGE_WILL_CHANGE")
 }
 
 extension Notification.Name {

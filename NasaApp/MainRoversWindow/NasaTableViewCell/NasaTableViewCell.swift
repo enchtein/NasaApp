@@ -33,6 +33,8 @@ class NasaTableViewCell: UITableViewCell {
   
   
   func setupCell(by roverInfo: RoverInfo) {
+    setupLocalizeTitles(isOneActiveCamera: roverInfo.cameraNames.count == 1)
+    
     self.roverNameLabel.text = roverInfo.roverName
     self.cameraNameLabel.text = adoptCamerasText(from: roverInfo.cameraNames)
     self.dateNameLabel.text = adoptDateText(from: roverInfo.dateStr)
@@ -47,5 +49,11 @@ class NasaTableViewCell: UITableViewCell {
     let result = "From " + dateName.replacingOccurrences(of: " - ", with: " to ")
     
     return result
+  }
+  
+  private func setupLocalizeTitles(isOneActiveCamera: Bool) {
+    roverLabel.text = MarsRoverPhotosEnum.name.localized
+    cameraLabel.text = isOneActiveCamera ? MarsRoverPhotosEnum.camera.localized : MarsRoverPhotosEnum.cameras.localized
+    dateLabel.text = MarsRoverPhotosEnum.date.localized
   }
 }

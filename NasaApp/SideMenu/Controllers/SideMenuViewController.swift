@@ -27,6 +27,18 @@ class SideMenuViewController: BaseViewController, StoryboardInitializable {
     self.topMenuViewHeightContraint.constant = TopMenuViewHeight.zeroHeight.value
     activeController = Menu.shared.menuItems.first?.controller
   }
+//  @IBAction func changeLanguageActionTemp(_ sender: UIButton) {
+//    if let targetLang = UserDefaults.standard.object(forKey: "selectedLanguage") as? String {
+//      let newLang = targetLang.elementsEqual("en") ? ApplicationLanguages.russian : ApplicationLanguages.english
+//      ChangeLanguageHelper.change(language: newLang)
+//    } else {
+//      ChangeLanguageHelper.change(language: .russian)
+//    }
+//  }
+  override func languageDidChange() {
+    super.languageDidChange()
+    self.title = Menu.shared.selectedMenuItem.stringValue
+  }
   
   //MARK: - Actions
   @IBAction func menuButtonPress(_ sender: UIBarButtonItem) {

@@ -1,0 +1,12 @@
+/* 
+  MenuItems.strings
+  NasaApp
+
+  Created by Track Ensure on 2022-04-24.
+  
+*/
+
+"marsRoverPhotos" = "Фотографии с марсохода";
+"astronomyPictureOfTheDay" = "Астрономическое фото дня";
+"history" = "История";
+"setting" = "Наскройки";

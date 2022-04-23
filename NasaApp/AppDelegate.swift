@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       return false
     }
     AppCoordinator.shared.start(with: window)
+    LocalizationUtils.setupLocalization()
     return true
   }
 

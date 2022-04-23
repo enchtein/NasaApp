@@ -15,14 +15,10 @@ enum MenuItemType: Int, CaseIterable {
   
   var stringValue: String { // should localize
     switch self {
-    case .MarsRoverPhotos:
-      return "Mars Rover Photos"
-    case .AstronomyPictureOfTheDay:
-      return "Astronomy Picture of the Day"
-    case .History:
-      return "History"
-    case .Setting:
-      return "Settings"
+    case .MarsRoverPhotos: return MenuItemsEnum.marsRoverPhotos.localized
+    case .AstronomyPictureOfTheDay: return MenuItemsEnum.astronomyPictureOfTheDay.localized
+    case .History: return MenuItemsEnum.history.localized
+    case .Setting: return MenuItemsEnum.setting.localized
     }
   }
   
