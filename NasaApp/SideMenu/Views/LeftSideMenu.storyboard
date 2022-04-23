@@ -53,6 +53,7 @@
                     <connections>
                         <outlet property="containerView" destination="bOi-Qt-khj" id="7Fw-hl-waW"/>
                         <outlet property="topMenuView" destination="MLc-rX-Kzk" id="8Fb-nJ-cfy"/>
+                        <outlet property="topMenuViewHeightContraint" destination="qXU-KA-MKw" id="JhY-FM-huf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ibP-Aa-lnJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

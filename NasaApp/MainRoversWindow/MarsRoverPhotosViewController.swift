@@ -29,11 +29,14 @@ class MarsRoverPhotosViewController: BaseViewController, StoryboardInitializable
   
   
   private var tempDataSource = [Rovers]()
+  private var correctDataSource = [RoverInfo]()
   
   override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    roverTable.rowHeight = UITableView.automaticDimension
+    roverTable.estimatedRowHeight = 600
       self.fetchRequestAll()
     
     //set images
@@ -71,9 +74,13 @@ class MarsRoverPhotosViewController: BaseViewController, StoryboardInitializable
       firstly { Provider.performRequestAll() }.done { [weak self] (response) in
         if let rovers = response.rovers {
           self?.tempDataSource = rovers
+          self?.setDataSource()
         }
         
         self?.roverTable.reloadData()
+        if let sideMenuVC = self?.parent as? SideMenuViewController {
+          sideMenuVC.changeTopMenuViewHeight(state: .defaultHeight)
+        }
       } .catch { (error) in
           debugPrint(error.localizedDescription)
       }
@@ -104,19 +111,19 @@ extension MarsRoverPhotosViewController: UITableViewDelegate {
 //MARK: - Rover UITableViewDataSource
 extension MarsRoverPhotosViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    self.tempDataSource.count
+//    self.tempDataSource.count
+    self.correctDataSource.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if let cell = roverTable.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as? NasaTableViewCell {
-      cell.roverNameLabel.text = self.tempDataSource[indexPath.row].name
+//      cell.roverNameLabel.text = self.tempDataSource[indexPath.row].name
+      cell.setupCell(by: self.correctDataSource[indexPath.row])
       
       return cell
     }
     return UITableViewCell()
   }
-  
-  
 }
 
 //MARK: - Heplers
@@ -154,4 +161,26 @@ extension MarsRoverPhotosViewController {
       }
     }
   }
+}
+
+//MARK: - LOGIC
+extension MarsRoverPhotosViewController {
+  private func setDataSource() {
+    for roverObj in self.tempDataSource {
+      let newRover = RoverInfo(roverName: roverObj.name, cameraNames: roverObj.cameras.map{$0.full_name}, dateStr: roverObj.launch_date + " - " + roverObj.max_date, imageURL: nil)
+      correctDataSource.append(newRover)
+    }
+//    correctDataSource
+    
+  }
+  
+  
+}
+
+//MARK: - DataSource struct
+struct RoverInfo {
+  let roverName: String
+  let cameraNames: [String]
+  let dateStr: String
+  let imageURL: URL?
 }

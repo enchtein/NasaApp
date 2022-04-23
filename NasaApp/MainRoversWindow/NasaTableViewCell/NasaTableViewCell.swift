@@ -31,10 +31,21 @@ class NasaTableViewCell: UITableViewCell {
 //        // Configure the view for the selected state
 //    }
   
-  func setupCell() {
-    self.roverNameLabel.text = "rover test name"
-    self.cameraNameLabel.text = "camera test name"
-    self.dateNameLabel.text = "01.02.2021"
+  
+  func setupCell(by roverInfo: RoverInfo) {
+    self.roverNameLabel.text = roverInfo.roverName
+    self.cameraNameLabel.text = adoptCamerasText(from: roverInfo.cameraNames)
+    self.dateNameLabel.text = adoptDateText(from: roverInfo.dateStr)
   }
+  
+  private func adoptCamerasText(from cameraNames: [String]) -> String {
+    let result = "* " + cameraNames.joined(separator: "\n* ")
     
+    return result
+  }
+  private func adoptDateText(from dateName: String) -> String {
+    let result = "From " + dateName.replacingOccurrences(of: " - ", with: " to ")
+    
+    return result
+  }
 }

@@ -9,6 +9,7 @@ import UIKit
 
 class SideMenuViewController: BaseViewController, StoryboardInitializable {
   @IBOutlet weak var topMenuView: UIView!
+  @IBOutlet weak var topMenuViewHeightContraint: NSLayoutConstraint! // default 44
   @IBOutlet weak var containerView: UIView!
   
   var activeController: UIViewController? {
@@ -23,6 +24,7 @@ class SideMenuViewController: BaseViewController, StoryboardInitializable {
     
     // Do any additional setup after loading the view.
     Menu.shared.reloadMenuItems()
+    self.topMenuViewHeightContraint.constant = TopMenuViewHeight.zeroHeight.value
     activeController = Menu.shared.menuItems.first?.controller
   }
   
@@ -53,6 +55,16 @@ class SideMenuViewController: BaseViewController, StoryboardInitializable {
     self.view.layoutSubviews()
     self.title = Menu.shared.selectedMenuItem.stringValue
   }
+  
+  func changeTopMenuViewHeight(state: TopMenuViewHeight, completion: @escaping (() -> Void) = {}) {
+    UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
+      self.topMenuViewHeightContraint.constant = state.value
+      self.view.layoutIfNeeded()
+    } completion: { _ in
+      completion()
+    }
+
+  }
 }
 //MARK: - Presentation Controller processing
 extension SideMenuViewController: UIViewControllerTransitioningDelegate {
@@ -73,5 +85,18 @@ extension SideMenuViewController: UIViewControllerTransitioningDelegate {
       return SlideInTransition(fromDirection: vc.presentDirection, reverse: true)
     }
     return nil
+  }
+}
+
+enum TopMenuViewHeight {
+  case defaultHeight
+  case zeroHeight
+  
+  var value: CGFloat {
+    switch self {
+      
+    case .defaultHeight: return 44
+    case .zeroHeight: return 0
+    }
   }
 }
