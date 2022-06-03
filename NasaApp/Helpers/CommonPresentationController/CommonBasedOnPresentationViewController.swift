@@ -12,32 +12,23 @@ class CommonBasedOnPresentationViewController: UIViewController {
   public var hasSetPointOrigin = false
   public var pointOrigin: CGPoint?
   
-//  public let colorTheme: MessangerColorTheme
-//  public let fontTheme: DispatchSystemFonts
-  
-  public let presentDirection: TransitionDirection
+  private(set) var presentDirection: TransitionDirection = .bottom
   
   //MARK: - Need to write convinience init in inherited class for init
   //*******************************
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, presentDirection: TransitionDirection = .bottom) {
-//    self.colorTheme = colorTheme
-//    self.fontTheme = fontTheme
+  static func createFromNibHelper(vcType: UIViewController.Type, presentDirection: TransitionDirection = .bottom) -> Self {
+    let vc = vcType.initFromNib() as! Self
+    vc.presentDirection = presentDirection
     
-    self.presentDirection = presentDirection
-    
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-  }
-  init?(coder: NSCoder, presentDirection: TransitionDirection = .bottom) {
-//    self.colorTheme = colorTheme
-//    self.fontTheme = fontTheme
-    
-    self.presentDirection = presentDirection
-    
-    super.init(coder: coder)
+    return vc
   }
   
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
+  static func createFromStoryboardHelper(storyboardName: String, bundle storyboardBundle: Bundle? = nil, withIdentifier storyboardIdentifier: String, presentDirection: TransitionDirection = .bottom) -> Self {
+    let storyboard = UIStoryboard(name: storyboardName, bundle: storyboardBundle)
+    let vc = storyboard.instantiateViewController(withIdentifier: storyboardIdentifier) as! Self
+    vc.presentDirection = presentDirection
+    
+    return vc
   }
   //*******************************
   

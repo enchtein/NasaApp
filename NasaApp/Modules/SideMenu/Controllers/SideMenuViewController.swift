@@ -26,6 +26,13 @@ class SideMenuViewController: BaseViewController, StoryboardInitializable {
     Menu.shared.reloadMenuItems()
     self.topMenuViewHeightContraint.constant = TopMenuViewHeight.zeroHeight.value
     activeController = Menu.shared.menuItems.first?.controller
+    
+    if !UserDefaults.standard.shouldShowStartInfoView {
+      let vc = UserPromptParentViewController.createFromNib()
+      vc.modalPresentationStyle = .custom
+      vc.transitioningDelegate = self
+      self.present(vc, animated: true, completion: nil)
+    }
   }
 //  @IBAction func changeLanguageActionTemp(_ sender: UIButton) {
 //    if let targetLang = UserDefaults.standard.object(forKey: "selectedLanguage") as? String {
@@ -42,7 +49,7 @@ class SideMenuViewController: BaseViewController, StoryboardInitializable {
   
   //MARK: - Actions
   @IBAction func menuButtonPress(_ sender: UIBarButtonItem) {
-    let menuVC = MenuViewController.instantiate(presentDirection: .left, topMenuViewHeight: self.topMenuView.frame.height)
+    let menuVC = MenuViewController.createFromStoryboard(presentDirection: .left, topMenuViewHeight: self.topMenuView.frame.height)
     menuVC.modalPresentationStyle = .custom
     menuVC.transitioningDelegate = self
     menuVC.rootController = self
@@ -83,17 +90,23 @@ extension SideMenuViewController: UIViewControllerTransitioningDelegate {
   func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
     if presented is MenuViewController {
       return MenuViewPresentationController(presentedViewController: presented, presenting: presenting)
+    } else if presented is UserPromptParentViewController {
+      return UserPromptPresentationController(presentedViewController: presented, presenting: presenting)
     }
     return nil
   }
   func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
     if let vc = presented as? MenuViewController {
       return SlideInTransition(fromDirection: vc.presentDirection)
+    } else if let vc = presented as? UserPromptParentViewController {
+      return SlideInTransition(fromDirection: vc.presentDirection)
     }
     return nil
   }
   func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
     if let vc = dismissed as? MenuViewController {
+      return SlideInTransition(fromDirection: vc.presentDirection, reverse: true)
+    } else if let vc = dismissed as? UserPromptParentViewController {
       return SlideInTransition(fromDirection: vc.presentDirection, reverse: true)
     }
     return nil

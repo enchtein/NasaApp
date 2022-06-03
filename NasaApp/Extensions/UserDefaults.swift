@@ -13,7 +13,7 @@ extension UserDefaults {
   }
   
   //MARK: - Properties
-  var showFuelPurchase: Bool {
+  var shouldShowStartInfoView: Bool {
     get { return bool(forKey: CodingKeys.shouldShowStartInfoView)}
     set { set(newValue, forKey: CodingKeys.shouldShowStartInfoView) }
   }

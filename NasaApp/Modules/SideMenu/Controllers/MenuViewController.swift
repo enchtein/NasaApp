@@ -8,7 +8,7 @@
 import UIKit
 
 class MenuViewController: CommonBasedOnPresentationViewController {
-  private let topMenuViewHeight: CGFloat
+  private(set) var topMenuViewHeight: CGFloat = .zero
   private var heightForLogoView: CGFloat {
     let navBarHeight = (self.presentingViewController as? UINavigationController)?.navigationBar.frame.height ?? 0
     return topMenuViewHeight + navBarHeight
@@ -16,26 +16,14 @@ class MenuViewController: CommonBasedOnPresentationViewController {
   
   //MARK: - VC life cycle
   //*******************************
-  private init?(coder: NSCoder, presentDirection: TransitionDirection, topMenuViewHeight: CGFloat) {
-    self.topMenuViewHeight = topMenuViewHeight
+  static func createFromStoryboard(presentDirection: TransitionDirection, topMenuViewHeight: CGFloat) -> Self {
+    let vc = super.createFromStoryboardHelper(storyboardName: "LeftSideMenu", bundle: nil, withIdentifier: "MenuViewController", presentDirection: presentDirection)
+    vc.topMenuViewHeight = topMenuViewHeight
     
-    super.init(coder: coder, presentDirection: presentDirection)
-  }
-  
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
-  public static func instantiate(presentDirection: TransitionDirection, topMenuViewHeight: CGFloat) -> MenuViewController {
-    let storyboard = UIStoryboard(name: "LeftSideMenu", bundle: nil)
-    
-    let vc =  storyboard.instantiateViewController(identifier: "MenuViewController") { coder -> MenuViewController? in
-      MenuViewController(coder: coder, presentDirection: presentDirection, topMenuViewHeight: topMenuViewHeight)
-    }
     return vc
   }
   deinit {
-    print("deinit DetailChatInfoViewController")
+    print("deinit MenuViewController")
   }
   //*******************************
   
