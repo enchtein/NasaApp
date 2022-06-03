@@ -216,6 +216,24 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		6D55281F2814B5D100F67AF6 /* MarsRoverPhotos */ = {
+			isa = PBXGroup;
+			children = (
+				6D55280C2814A82600F67AF6 /* MarsRoverPhotosEnum.swift */,
+				6D5528122814A89E00F67AF6 /* MarsRoverPhotos.strings */,
+			);
+			path = MarsRoverPhotos;
+			sourceTree = "<group>";
+		};
+		6D5528202814B5DF00F67AF6 /* MenuItems */ = {
+			isa = PBXGroup;
+			children = (
+				6D5528172814B32300F67AF6 /* MenuItemsEnum.swift */,
+				6D55281D2814B3AF00F67AF6 /* MenuItems.strings */,
+			);
+			path = MenuItems;
+			sourceTree = "<group>";
+		};
 		6D6047742808BAC800395354 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,11 +258,9 @@
 		6D60477C2808BEDC00395354 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				6D5528202814B5DF00F67AF6 /* MenuItems */,
+				6D55281F2814B5D100F67AF6 /* MarsRoverPhotos */,
 				6D55280B2814A7CB00F67AF6 /* Common */,
-				6D55280C2814A82600F67AF6 /* MarsRoverPhotosEnum.swift */,
-				6D5528122814A89E00F67AF6 /* MarsRoverPhotos.strings */,
-				6D5528172814B32300F67AF6 /* MenuItemsEnum.swift */,
-				6D55281D2814B3AF00F67AF6 /* MenuItems.strings */,
 			);
 			path = Localization;
 			sourceTree = "<group>";

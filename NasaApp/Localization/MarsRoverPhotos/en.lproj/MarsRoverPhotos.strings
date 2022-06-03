@@ -10,3 +10,5 @@
 "camera" = "Camera";
 "cameras" = "Cameras";
 "date" = "Date";
+"from" = "From";
+"to" = "To";

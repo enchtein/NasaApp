@@ -12,6 +12,8 @@ enum MarsRoverPhotosEnum: String, Localizable {
   case camera
   case cameras
   case date
+  case from
+  case to
   
   var tableName: String {
     return "MarsRoverPhotos"

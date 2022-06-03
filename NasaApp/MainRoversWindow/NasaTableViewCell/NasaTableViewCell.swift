@@ -46,7 +46,7 @@ class NasaTableViewCell: UITableViewCell {
     return result
   }
   private func adoptDateText(from dateName: String) -> String {
-    let result = "From " + dateName.replacingOccurrences(of: " - ", with: " to ")
+    let result = "\(MarsRoverPhotosEnum.from.localized) " + dateName.replacingOccurrences(of: " - ", with: " \(MarsRoverPhotosEnum.to.localized) ")
     
     return result
   }
