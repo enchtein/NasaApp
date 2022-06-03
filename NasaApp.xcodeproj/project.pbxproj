@@ -39,6 +39,7 @@
 		6D6296FC280A116D0093EB3A /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D6296FA280A116D0093EB3A /* MenuTableViewCell.xib */; };
 		6D6296FF280A19C70093EB3A /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6296FE280A19C70093EB3A /* AppFont.swift */; };
 		6D71A2C9280CA82600442169 /* MarsRoverPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D71A2C8280CA82600442169 /* MarsRoverPhotosViewController.swift */; };
+		6D91F86E284AADE800697A53 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D91F86D284AADE800697A53 /* UserDefaults.swift */; };
 		6DB7FCCE2808D83400A7A220 /* CommonPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB7FCC92808D83400A7A220 /* CommonPresentationController.swift */; };
 		6DB7FCCF2808D83400A7A220 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB7FCCB2808D83400A7A220 /* SlideInTransition.swift */; };
 		6DB7FCD02808D83400A7A220 /* TransitionProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB7FCCC2808D83400A7A220 /* TransitionProperties.swift */; };
@@ -88,6 +89,7 @@
 		6D6296FA280A116D0093EB3A /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
 		6D6296FE280A19C70093EB3A /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		6D71A2C8280CA82600442169 /* MarsRoverPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverPhotosViewController.swift; sourceTree = "<group>"; };
+		6D91F86D284AADE800697A53 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		6DB7FCC92808D83400A7A220 /* CommonPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonPresentationController.swift; sourceTree = "<group>"; };
 		6DB7FCCB2808D83400A7A220 /* SlideInTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		6DB7FCCC2808D83400A7A220 /* TransitionProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionProperties.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				6D60477F2808C00400395354 /* Notification.swift */,
 				6D4C68DB280A3E0300B618F2 /* UIView+Extension.swift */,
 				6D5528152814AC4600F67AF6 /* String+Extensions.swift */,
+				6D91F86D284AADE800697A53 /* UserDefaults.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -283,6 +286,17 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		6D91F86F284AAF4E00697A53 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				6D0391E0280780F600F39903 /* Login */,
+				6D0391E3280781AD00F39903 /* MainRoversWindow */,
+				6D6047742808BAC800395354 /* SideMenu */,
+				6D4C68DD280A40A500B618F2 /* CreatedBy */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
 		6DB7FCC82808D83400A7A220 /* CommonPresentationController */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,13 +337,10 @@
 		8AA4C7F92789C53800C55576 /* NasaApp */ = {
 			isa = PBXGroup;
 			children = (
+				6D91F86F284AAF4E00697A53 /* Modules */,
 				6D5528042814A71B00F67AF6 /* Helpers */,
-				6D4C68DD280A40A500B618F2 /* CreatedBy */,
 				6D6296FD280A19B20093EB3A /* Enums */,
 				6D60477C2808BEDC00395354 /* Localization */,
-				6D6047742808BAC800395354 /* SideMenu */,
-				6D0391E3280781AD00F39903 /* MainRoversWindow */,
-				6D0391E0280780F600F39903 /* Login */,
 				6D0391DD28077F2C00F39903 /* Extensions */,
 				6D0391D428077BE600F39903 /* AppRouting */,
 				6D0391C4280774F100F39903 /* Network */,
@@ -511,6 +522,7 @@
 				6D71A2C9280CA82600442169 /* MarsRoverPhotosViewController.swift in Sources */,
 				6D0391DC28077E7700F39903 /* StoryboardInitializable.swift in Sources */,
 				6D0391CA2807756C00F39903 /* MoyaAdapter.swift in Sources */,
+				6D91F86E284AADE800697A53 /* UserDefaults.swift in Sources */,
 				6D6296FB280A116D0093EB3A /* MenuTableViewCell.swift in Sources */,
 				6D60477B2808BDCB00395354 /* MenuViewController.swift in Sources */,
 				6D0391C82807756000F39903 /* MoyaTarget.swift in Sources */,
