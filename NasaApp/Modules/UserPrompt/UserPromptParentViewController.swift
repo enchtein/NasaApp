@@ -16,15 +16,16 @@ class UserPromptParentViewController: CommonBasedOnPresentationViewController {
   }
   
   deinit {
-    print("deinit ChatNameViewController")
+    print("deinit UserPromptParentViewController")
   }
   //*******************************
   
-
+  @IBOutlet weak var containerView: UIView!
+  
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+      
     }
 
 
@@ -38,4 +39,7 @@ class UserPromptParentViewController: CommonBasedOnPresentationViewController {
     }
     */
 
+  @IBAction func closeButtonAction(_ sender: UIButton) {
+    self.dismiss(animated: true)
+  }
 }

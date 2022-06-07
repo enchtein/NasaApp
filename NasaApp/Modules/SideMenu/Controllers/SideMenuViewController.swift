@@ -27,7 +27,7 @@ class SideMenuViewController: BaseViewController, StoryboardInitializable {
     self.topMenuViewHeightContraint.constant = TopMenuViewHeight.zeroHeight.value
     activeController = Menu.shared.menuItems.first?.controller
     
-    if !UserDefaults.standard.shouldShowStartInfoView {
+    if !UserDefaults.standard.isShownStartInfoView {
       let vc = UserPromptParentViewController.createFromNib()
       vc.modalPresentationStyle = .custom
       vc.transitioningDelegate = self

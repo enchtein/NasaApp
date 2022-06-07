@@ -97,9 +97,11 @@ class CommonPresentationController: UIPresentationController {
     })
   }
   
-  //MARK: - Override to set cornerRadius
+  //MARK: - Override to set cornerRadius (only if needed)
   override func containerViewWillLayoutSubviews() {
     super.containerViewWillLayoutSubviews()
+    presentedView!.roundCorners(.allCorners, radius: 13)
+    presentedView!.clipsToBounds = true
   }
   
   //MARK: - Override to set vc.pointOrigin on rotate (only if needed)

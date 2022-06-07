@@ -9,12 +9,12 @@ import Foundation
 
 extension UserDefaults {
   enum CodingKeys {
-    static let shouldShowStartInfoView = "shouldShowStartInfoView"
+    static let isShownStartInfoView = "isShownStartInfoView"
   }
   
   //MARK: - Properties
-  var shouldShowStartInfoView: Bool {
-    get { return bool(forKey: CodingKeys.shouldShowStartInfoView)}
-    set { set(newValue, forKey: CodingKeys.shouldShowStartInfoView) }
+  var isShownStartInfoView: Bool {
+    get { return bool(forKey: CodingKeys.isShownStartInfoView)}
+    set { set(newValue, forKey: CodingKeys.isShownStartInfoView) }
   }
 }

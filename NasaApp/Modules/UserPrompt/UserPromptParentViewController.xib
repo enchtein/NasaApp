@@ -3,13 +3,14 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20037"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserPromptParentViewController" customModule="NasaApp" customModuleProvider="target">
             <connections>
+                <outlet property="containerView" destination="TrX-5z-8LD" id="WD3-q1-d0s"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,24 +19,37 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lze-Hx-MBu">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TrX-5z-8LD">
+                    <rect key="frame" x="20" y="20" width="374" height="856"/>
                     <color key="backgroundColor" systemColor="systemRedColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="SWQ-xw-XNE"/>
-                    </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5f-rq-2e2">
+                    <rect key="frame" x="374" y="0.0" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="Ynd-aD-CvK"/>
+                        <constraint firstAttribute="height" constant="40" id="o3o-Js-KlS"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="xmark" catalog="system"/>
+                    <connections>
+                        <action selector="closeButtonAction:" destination="-1" eventType="touchUpInside" id="cge-Ns-WSX"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Lze-Hx-MBu" secondAttribute="trailing" id="THJ-uW-NgD"/>
-                <constraint firstItem="Lze-Hx-MBu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cim-bi-sGx"/>
-                <constraint firstItem="Lze-Hx-MBu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qBn-xS-ImJ"/>
+                <constraint firstItem="TrX-5z-8LD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="2lP-ob-ebF"/>
+                <constraint firstItem="TrX-5z-8LD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="7yU-OQ-nhA"/>
+                <constraint firstItem="L5f-rq-2e2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8SY-Mg-XGz"/>
+                <constraint firstAttribute="bottom" secondItem="TrX-5z-8LD" secondAttribute="bottom" constant="20" id="A0V-6P-QJT"/>
+                <constraint firstAttribute="trailing" secondItem="TrX-5z-8LD" secondAttribute="trailing" constant="20" id="Ts1-w2-FMr"/>
+                <constraint firstAttribute="trailing" secondItem="L5f-rq-2e2" secondAttribute="trailing" id="l2Y-79-geJ"/>
             </constraints>
-            <point key="canvasLocation" x="132" y="132"/>
+            <point key="canvasLocation" x="131.8840579710145" y="131.91964285714286"/>
         </view>
     </objects>
     <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
