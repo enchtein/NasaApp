@@ -39,6 +39,9 @@
 		6D6296FB280A116D0093EB3A /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6296F9280A116D0093EB3A /* MenuTableViewCell.swift */; };
 		6D6296FC280A116D0093EB3A /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D6296FA280A116D0093EB3A /* MenuTableViewCell.xib */; };
 		6D6296FF280A19C70093EB3A /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6296FE280A19C70093EB3A /* AppFont.swift */; };
+		6D66EC0728500D3600373749 /* UserPromptPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D66EC0628500D3600373749 /* UserPromptPageViewController.swift */; };
+		6D66EC0928500E2100373749 /* UserPromptInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D66EC0828500E2000373749 /* UserPromptInfo.swift */; };
+		6D66EC0B28500F5000373749 /* UserPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D66EC0A28500F5000373749 /* UserPromptViewController.swift */; };
 		6D71A2C9280CA82600442169 /* MarsRoverPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D71A2C8280CA82600442169 /* MarsRoverPhotosViewController.swift */; };
 		6D91F86E284AADE800697A53 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D91F86D284AADE800697A53 /* UserDefaults.swift */; };
 		6D91F872284AB16C00697A53 /* UserPromptPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D91F871284AB16C00697A53 /* UserPromptPresentationController.swift */; };
@@ -94,6 +97,9 @@
 		6D6296F9280A116D0093EB3A /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		6D6296FA280A116D0093EB3A /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
 		6D6296FE280A19C70093EB3A /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
+		6D66EC0628500D3600373749 /* UserPromptPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPromptPageViewController.swift; sourceTree = "<group>"; };
+		6D66EC0828500E2000373749 /* UserPromptInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPromptInfo.swift; sourceTree = "<group>"; };
+		6D66EC0A28500F5000373749 /* UserPromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPromptViewController.swift; sourceTree = "<group>"; };
 		6D71A2C8280CA82600442169 /* MarsRoverPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsRoverPhotosViewController.swift; sourceTree = "<group>"; };
 		6D91F86D284AADE800697A53 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		6D91F871284AB16C00697A53 /* UserPromptPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPromptPresentationController.swift; sourceTree = "<group>"; };
@@ -316,6 +322,9 @@
 				6D91F871284AB16C00697A53 /* UserPromptPresentationController.swift */,
 				6D91F873284AB1C100697A53 /* UserPromptParentViewController.swift */,
 				6D91F874284AB1C100697A53 /* UserPromptParentViewController.xib */,
+				6D66EC0628500D3600373749 /* UserPromptPageViewController.swift */,
+				6D66EC0828500E2000373749 /* UserPromptInfo.swift */,
+				6D66EC0A28500F5000373749 /* UserPromptViewController.swift */,
 			);
 			path = UserPrompt;
 			sourceTree = "<group>";
@@ -541,6 +550,7 @@
 				6DB7FCCF2808D83400A7A220 /* SlideInTransition.swift in Sources */,
 				6D4C68DA280A2C3B00B618F2 /* MenuLogoView.swift in Sources */,
 				8AA4C7FB2789C53800C55576 /* AppDelegate.swift in Sources */,
+				6D66EC0928500E2100373749 /* UserPromptInfo.swift in Sources */,
 				6D55280A2814A7B100F67AF6 /* Localizable.swift in Sources */,
 				6D6047792808BC1B00395354 /* SideMenuViewController.swift in Sources */,
 				6D60477E2808BF0100395354 /* BaseViewController.swift in Sources */,
@@ -556,6 +566,7 @@
 				6D6047802808C00400395354 /* Notification.swift in Sources */,
 				6D91F875284AB1C100697A53 /* UserPromptParentViewController.swift in Sources */,
 				6DB7FCD02808D83400A7A220 /* TransitionProperties.swift in Sources */,
+				6D66EC0728500D3600373749 /* UserPromptPageViewController.swift in Sources */,
 				6D55280D2814A82600F67AF6 /* MarsRoverPhotosEnum.swift in Sources */,
 				6D5528062814A74700F67AF6 /* String+Extension.swift in Sources */,
 				6D91F872284AB16C00697A53 /* UserPromptPresentationController.swift in Sources */,
@@ -563,6 +574,7 @@
 				6D5BD11F284DEC3900A7D5A9 /* UIDevice+Extensions.swift in Sources */,
 				6D6296F7280A0E360093EB3A /* Menus.swift in Sources */,
 				6D0391DF28077F3B00F39903 /* UIApplication+Extension.swift in Sources */,
+				6D66EC0B28500F5000373749 /* UserPromptViewController.swift in Sources */,
 				6D5528182814B32300F67AF6 /* MenuItemsEnum.swift in Sources */,
 				6DB7FCCE2808D83400A7A220 /* CommonPresentationController.swift in Sources */,
 				6D4C68E0280A40CB00B618F2 /* CreatedBy.swift in Sources */,
