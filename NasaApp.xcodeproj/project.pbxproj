@@ -34,6 +34,7 @@
 		6D60477B2808BDCB00395354 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60477A2808BDCB00395354 /* MenuViewController.swift */; };
 		6D60477E2808BF0100395354 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60477D2808BF0100395354 /* BaseViewController.swift */; };
 		6D6047802808C00400395354 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60477F2808C00400395354 /* Notification.swift */; };
+		6D60E5EB2856681200279E03 /* URLSession+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60E5EA2856681200279E03 /* URLSession+Extensions.swift */; };
 		6D6296F52809E17C0093EB3A /* MenuViewPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6296F42809E17C0093EB3A /* MenuViewPresentationController.swift */; };
 		6D6296F7280A0E360093EB3A /* Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6296F6280A0E360093EB3A /* Menus.swift */; };
 		6D6296FB280A116D0093EB3A /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6296F9280A116D0093EB3A /* MenuTableViewCell.swift */; };
@@ -92,6 +93,7 @@
 		6D60477A2808BDCB00395354 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		6D60477D2808BF0100395354 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		6D60477F2808C00400395354 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		6D60E5EA2856681200279E03 /* URLSession+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extensions.swift"; sourceTree = "<group>"; };
 		6D6296F42809E17C0093EB3A /* MenuViewPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewPresentationController.swift; sourceTree = "<group>"; };
 		6D6296F6280A0E360093EB3A /* Menus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menus.swift; sourceTree = "<group>"; };
 		6D6296F9280A116D0093EB3A /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				6D91F86D284AADE800697A53 /* UserDefaults.swift */,
 				6D91F877284ABA2A00697A53 /* UIViewController+Extensions.swift */,
 				6D5BD11E284DEC3900A7D5A9 /* UIDevice+Extensions.swift */,
+				6D60E5EA2856681200279E03 /* URLSession+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 				6DB7FCCF2808D83400A7A220 /* SlideInTransition.swift in Sources */,
 				6D4C68DA280A2C3B00B618F2 /* MenuLogoView.swift in Sources */,
 				8AA4C7FB2789C53800C55576 /* AppDelegate.swift in Sources */,
+				6D60E5EB2856681200279E03 /* URLSession+Extensions.swift in Sources */,
 				6D66EC0928500E2100373749 /* UserPromptInfo.swift in Sources */,
 				6D55280A2814A7B100F67AF6 /* Localizable.swift in Sources */,
 				6D6047792808BC1B00395354 /* SideMenuViewController.swift in Sources */,

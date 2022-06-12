@@ -22,26 +22,17 @@ class NasaTableViewCell: UITableViewCell {
   
   private let preloader = UIActivityIndicatorView()
   
-  //    override func awakeFromNib() {
-  //        super.awakeFromNib()
-  //        // Initialization code
-  //    }
-  
-  //    override func setSelected(_ selected: Bool, animated: Bool) {
-  //        super.setSelected(selected, animated: animated)
-  //
-  //        // Configure the view for the selected state
-  //    }
   private var image: UIImage? {
     didSet {
       self.roverImageView.image = image
       preloader.stopAnimating()
     }
   }
+  
   override func prepareForReuse() {
     super.prepareForReuse()
     image = nil
-    preloader.removeFromSuperview()
+    preloader.stopAnimating()
   }
   
   
@@ -62,10 +53,8 @@ class NasaTableViewCell: UITableViewCell {
     preloader.centerXAnchor.constraint(equalTo: roverImageView.centerXAnchor).isActive = true
     preloader.startAnimating()
     
-    //start fetching preloader
-    DispatchQueue.main.async {
-      let tempIm = "https://picsum.photos/300".load() ?? UIImage(named: "ic_no_internet")!
-      self.image = tempIm
+    URLSession.downloadImage(from: "https://picsum.photos/300") { image in
+      self.image = image ?? UIImage(named: "ic_no_internet")!
     }
   }
   
