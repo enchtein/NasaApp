@@ -11,7 +11,7 @@ import PromiseKit
 class MarsRoverPhotosViewController: BaseViewController, StoryboardInitializable {
   
   private let cellIdentifier = "NasaTableViewCell"
-
+  
   @IBOutlet weak var rover: UIView!
   @IBOutlet weak var roverControl: UIControl!
   @IBOutlet weak var roverName: UILabel!
@@ -25,19 +25,49 @@ class MarsRoverPhotosViewController: BaseViewController, StoryboardInitializable
   @IBOutlet weak var dateName: UILabel!
   @IBOutlet weak var dateImage: UIImageView!
   
+  @IBOutlet weak var editingTextField: UITextField!
   @IBOutlet weak var roverTable: UITableView!
   
   
   private var tempDataSource = [Rovers]()
   private var correctDataSource = [RoverInfo]()
   
+  private lazy var roverDataPicker: UIPickerView = {
+    let roverDataPicker = UIPickerView()
+    //    let roverDataPicker = UIPickerView(frame: CGRect(x: 0, y: self.view.frame.size.height - 300, width: self.view.frame.size.width, height: 300))
+    roverDataPicker.dataSource = self
+    roverDataPicker.delegate = self
+    roverDataPicker.autoresizingMask = .flexibleWidth
+    
+    return roverDataPicker
+  }()
+  private lazy var roverDataSource = [String]()
+  private lazy var roverDatePicker: UIDatePicker = {
+    let roverDatePicker = UIDatePicker()
+    roverDatePicker.datePickerMode = .date
+    roverDatePicker.preferredDatePickerStyle = .wheels
+    roverDatePicker.autoresizingMask = .flexibleWidth
+    
+    return roverDatePicker
+  }()
+  private lazy var pickerToolbar: UIToolbar = {
+    let pickerToolbar = UIToolbar()
+    
+    pickerToolbar.items = [UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(onDoneButtonTapped))]
+    pickerToolbar.sizeToFit()
+    
+    return pickerToolbar
+  }()
+  @objc private func onDoneButtonTapped(_ sender: UIBarButtonItem) {
+    print("onDoneButtonTapped")
+  }
   override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    super.viewDidLoad()
+    
+    // Do any additional setup after loading the view.
     roverTable.rowHeight = UITableView.automaticDimension
     roverTable.estimatedRowHeight = 600
-      self.fetchRequestAll()
+    self.fetchRequestAll()
     
     //set images
     roverImage.image = UIImage(named: "icon_rover")
@@ -46,8 +76,8 @@ class MarsRoverPhotosViewController: BaseViewController, StoryboardInitializable
     
     self.additionalSettings()
     
-    
-    }
+    //    self.hideKeyboardWhenTappedAround()
+  }
   
   override func setupFont() {
     [roverName, cameraName, dateName].forEach({$0?.font = AppFont.font(type: .standart, size: 15)})
@@ -61,7 +91,7 @@ class MarsRoverPhotosViewController: BaseViewController, StoryboardInitializable
     super.languageDidChange()
     self.roverTable.reloadData()
   }
-    
+  
   private func additionalSettings() {
     [rover, camera, date].forEach {
       $0?.clipsToBounds = true
@@ -72,22 +102,34 @@ class MarsRoverPhotosViewController: BaseViewController, StoryboardInitializable
     self.roverTable.dataSource = self
     self.roverTable.register(UINib(nibName: "NasaTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
   }
+  private func setPicker(for sender: UIControl) {
+    if sender === roverControl || sender === cameraControl {
+      // show data picker
+      editingTextField.inputView = self.roverDataPicker
+      editingTextField.inputAccessoryView = self.pickerToolbar
+      editingTextField.becomeFirstResponder()
+    } else if sender === dateControl {
+      // show date picker
+    } else {
+      fatalError("unknown sender!")
+    }
+  }
   
   //MARK: - Network Task's
   func fetchRequestAll() {
-      firstly { Provider.performRequestAll() }.done { [weak self] (response) in
-        if let rovers = response.rovers {
-          self?.tempDataSource = rovers
-          self?.setDataSource()
-        }
-        
-        self?.roverTable.reloadData()
-        if let sideMenuVC = self?.parent as? SideMenuViewController {
-          sideMenuVC.changeTopMenuViewHeight(state: .defaultHeight)
-        }
-      } .catch { (error) in
-          debugPrint(error.localizedDescription)
+    firstly { Provider.performRequestAll() }.done { [weak self] (response) in
+      if let rovers = response.rovers {
+        self?.tempDataSource = rovers
+        self?.setDataSource()
       }
+      
+      self?.roverTable.reloadData()
+      if let sideMenuVC = self?.parent as? SideMenuViewController {
+        sideMenuVC.changeTopMenuViewHeight(state: .defaultHeight)
+      }
+    } .catch { (error) in
+      debugPrint(error.localizedDescription)
+    }
   }
   
   //MARK: - UIControl Actions
@@ -98,6 +140,20 @@ class MarsRoverPhotosViewController: BaseViewController, StoryboardInitializable
   @IBAction func touchUpInsideAction(_ sender: UIControl) {
     print("touchUpInsideAction")
     self.eventReact(for: sender, with: .touchEnd)
+    
+    if sender === roverControl {
+      //set dataSource or date range
+      self.roverDataSource = self.correctDataSource.map {$0.roverName}
+    } else if sender === cameraControl {
+      //set dataSource or date range
+      self.roverDataSource = Array(Set(self.correctDataSource.map {$0.cameraNames}.flatMap {$0})).sorted(by: {$0 < $1})
+    } else if sender === dateControl {
+      //show date picker
+    } else {
+      fatalError("unknown sender!")
+    }
+    
+    self.setPicker(for: sender)
   }
   @IBAction func touchDragExitAction(_ sender: UIControl) {
     print("touchDragExit")
@@ -128,7 +184,25 @@ extension MarsRoverPhotosViewController: UITableViewDataSource {
     return UITableViewCell()
   }
 }
-// MARK: - UIContextMenuInteractionDelegate
+//MARK: - UIPickerViewDataSource
+extension MarsRoverPhotosViewController: UIPickerViewDataSource {
+  func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    1
+  }
+  func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    self.roverDataSource.count
+  }
+}
+//MARK: - UIPickerViewDelegate
+extension MarsRoverPhotosViewController: UIPickerViewDelegate {
+  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    self.roverDataSource[row]
+  }
+  func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    self.roverName.text = self.roverDataSource[row]
+  }
+}
+// MARK: - UIContextMenu
 extension MarsRoverPhotosViewController {
   func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
     let index = indexPath.row
@@ -203,7 +277,6 @@ extension MarsRoverPhotosViewController {
     } else if sender === cameraControl {
       cameraName.textColor = event.colorThemeText
       cameraImage.tintColor = event.colorThemeImage
-      
     } else if sender === dateControl {
       dateName.textColor = event.colorThemeText
       dateImage.tintColor = event.colorThemeImage
@@ -238,6 +311,17 @@ extension MarsRoverPhotosViewController {
       let newRover = RoverInfo(roverName: roverObj.name, cameraNames: roverObj.cameras.map{$0.full_name}, dateStr: roverObj.launch_date + " - " + roverObj.max_date, imageURL: nil)
       correctDataSource.append(newRover)
     }
+  }
+  
+  private func availiableRover() {
+    
+  }
+  private func availiableCamera() {
+    
+  }
+  private func availiableDateRange() {
+    self.roverDatePicker.minimumDate
+    self.roverDatePicker.minimumDate
   }
 }
 

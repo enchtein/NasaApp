@@ -142,6 +142,11 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L5w-pp-2r3">
+                                <rect key="frame" x="191" y="431" width="32" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DMD-yY-0vP">
                                 <rect key="frame" x="5" y="88" width="404" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -154,6 +159,8 @@
                             <constraint firstItem="FQN-wK-2F2" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="5" id="AjG-Xq-A7S"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="DMD-yY-0vP" secondAttribute="bottom" constant="5" id="BIt-qh-5hS"/>
                             <constraint firstItem="DMD-yY-0vP" firstAttribute="top" secondItem="FQN-wK-2F2" secondAttribute="bottom" constant="5" id="HWR-ec-PB7"/>
+                            <constraint firstItem="L5w-pp-2r3" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="IzX-Xj-FYz"/>
+                            <constraint firstItem="L5w-pp-2r3" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="L5f-Mp-ND1"/>
                             <constraint firstItem="DMD-yY-0vP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="5" id="aKu-TG-m2r"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DMD-yY-0vP" secondAttribute="trailing" constant="5" id="d6V-au-YmQ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FQN-wK-2F2" secondAttribute="trailing" constant="5" id="rdc-0K-MAz"/>
@@ -168,6 +175,7 @@
                         <outlet property="dateControl" destination="cfu-Jl-HwC" id="6GJ-sD-PaQ"/>
                         <outlet property="dateImage" destination="JGg-wi-p1h" id="Qpb-AT-VnR"/>
                         <outlet property="dateName" destination="aVJ-Aj-60g" id="5Ga-ck-tPj"/>
+                        <outlet property="editingTextField" destination="L5w-pp-2r3" id="Z3u-uf-3WM"/>
                         <outlet property="rover" destination="0tW-39-Nbq" id="7jX-81-dNA"/>
                         <outlet property="roverControl" destination="Bw5-Q6-p52" id="iO1-qV-arZ"/>
                         <outlet property="roverImage" destination="GUm-KT-Oy8" id="PUS-Xv-FzH"/>
