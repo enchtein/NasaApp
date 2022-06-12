@@ -20,16 +20,29 @@ class NasaTableViewCell: UITableViewCell {
   //image
   @IBOutlet weak var roverImageView: UIImageView!
   
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+  private let preloader = UIActivityIndicatorView()
+  
+  //    override func awakeFromNib() {
+  //        super.awakeFromNib()
+  //        // Initialization code
+  //    }
+  
+  //    override func setSelected(_ selected: Bool, animated: Bool) {
+  //        super.setSelected(selected, animated: animated)
+  //
+  //        // Configure the view for the selected state
+  //    }
+  private var image: UIImage? {
+    didSet {
+      self.roverImageView.image = image
+      preloader.stopAnimating()
     }
-
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
+  }
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    image = nil
+    preloader.removeFromSuperview()
+  }
   
   
   func setupCell(by roverInfo: RoverInfo) {
@@ -38,6 +51,22 @@ class NasaTableViewCell: UITableViewCell {
     self.roverNameLabel.text = roverInfo.roverName
     self.cameraNameLabel.text = adoptCamerasText(from: roverInfo.cameraNames)
     self.dateNameLabel.text = adoptDateText(from: roverInfo.dateStr)
+    
+    loadImage()
+  }
+  
+  private func loadImage() {
+    self.contentView.addSubview(preloader)
+    preloader.translatesAutoresizingMaskIntoConstraints = false
+    preloader.centerYAnchor.constraint(equalTo: roverImageView.centerYAnchor).isActive = true
+    preloader.centerXAnchor.constraint(equalTo: roverImageView.centerXAnchor).isActive = true
+    preloader.startAnimating()
+    
+    //start fetching preloader
+    DispatchQueue.main.async {
+      let tempIm = "https://picsum.photos/300".load() ?? UIImage(named: "ic_no_internet")!
+      self.image = tempIm
+    }
   }
   
   private func adoptCamerasText(from cameraNames: [String]) -> String {

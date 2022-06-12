@@ -128,6 +128,71 @@ extension MarsRoverPhotosViewController: UITableViewDataSource {
     return UITableViewCell()
   }
 }
+// MARK: - UIContextMenuInteractionDelegate
+extension MarsRoverPhotosViewController {
+  func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+    let index = indexPath.row
+    
+    return self.configureContextMenu(index: index)
+  }
+  
+  private func configureContextMenu(index: Int) -> UIContextMenuConfiguration? {
+    guard let cell = self.roverTable.cellForRow(at: IndexPath(row: index, section: 0)) as? NasaTableViewCell else {return nil}
+    
+    let im = UIImage(named: "ic_favourites_add")?.withTintColor(.label, renderingMode: .alwaysTemplate) //ic_favourites_remove
+    let favorite = UIAction(title: "Add to favourites", image: im) { _ in
+      print("test *Should add to UserDefaults*")
+    }
+    
+    let identifier = "\(index)" as NSString
+    let configuration = UIContextMenuConfiguration(identifier: identifier) { () -> UIViewController? in
+      return self.makeCustomPreview(with: cell.roverLabel.text ?? "", and: cell.roverImageView.image)
+    } actionProvider: { _ in
+      UIMenu(title: "", identifier: nil, children: [favorite])
+    }
+    
+    return configuration
+  }
+  
+  private func makeCustomPreview(with text: String, and image: UIImage?) -> UIViewController {
+    lazy var imageView: UIImageView = {
+      let imageView = UIImageView()
+      imageView.contentMode = .scaleAspectFill
+      imageView.roundCorners(.allCorners, radius: 20)
+      imageView.clipsToBounds = true
+      
+      return imageView
+    }()
+    //********//
+    let vc = UIViewController()
+    vc.preferredContentSize = CGSize(width: 300, height: 300)
+    vc.view.backgroundColor = .yellow
+    
+    let stack = UIStackView()
+    stack.axis = .vertical
+    stack.spacing = 10
+    
+    let label = UILabel()
+    label.text = text
+    label.textAlignment = .center
+    label.font = AppFont.font(type: .bold, size: 16)
+    label.textColor = .label
+    label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
+    stack.addArrangedSubview(label)
+    
+    if let image = image {
+      imageView.image = image
+      imageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+      stack.addArrangedSubview(imageView)
+    }
+    
+    vc.view.addSubview(stack)
+    stack.fillToSuperview(sideIndent: 10)
+    stack.clipsToBounds = true
+    
+    return vc
+  }
+}
 
 //MARK: - Heplers
 extension MarsRoverPhotosViewController {
@@ -173,11 +238,7 @@ extension MarsRoverPhotosViewController {
       let newRover = RoverInfo(roverName: roverObj.name, cameraNames: roverObj.cameras.map{$0.full_name}, dateStr: roverObj.launch_date + " - " + roverObj.max_date, imageURL: nil)
       correctDataSource.append(newRover)
     }
-//    correctDataSource
-    
   }
-  
-  
 }
 
 //MARK: - DataSource struct

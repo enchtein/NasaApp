@@ -5,7 +5,7 @@
 //  Created by Track Ensure on 2022-04-24.
 //
 
-import Foundation
+import UIKit
 
 var bundleKey: UInt8 = 0
 
@@ -35,4 +35,20 @@ extension Bundle {
         print(language)
         objc_setAssociatedObject(Bundle.main, &bundleKey,    Bundle.main.path(forResource: language, ofType: "lproj"), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
+}
+
+extension String {
+  func load() -> UIImage? {
+    do {
+      guard let url = URL(string: self) else {return nil}
+      
+      let data = try Data(contentsOf: url)
+      
+      return UIImage(data: data)
+    } catch let error {
+      debugPrint(error.localizedDescription)
+    }
+    
+    return nil
+  }
 }
